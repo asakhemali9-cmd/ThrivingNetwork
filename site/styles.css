@@ -460,7 +460,6 @@ h1, h2, h3, p { margin: 0; }
 .tier__name { display: flex; align-items: center; gap: 10px; font-size: 12.5px; font-weight: 800; letter-spacing: .12em; }
 .tier__name::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--dot); }
 .tier__title { font-size: 19px; font-weight: 800; }
-.tier__price { font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
 .tier p { font-size: 14px; line-height: 1.5; opacity: .8; }
 
 /* Amplification */
@@ -498,9 +497,6 @@ h1, h2, h3, p { margin: 0; }
 .amp-tier__n { font-size: 12px; font-weight: 800; letter-spacing: .14em; color: var(--kc); }
 .amp-tier__name { font-size: 21px; font-weight: 800; }
 .amp-tier__name span { font-weight: 600; font-size: 15px; opacity: .7; }
-.amp-tier__price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-.amp-tier__price strong { font-size: 26px; font-weight: 800; letter-spacing: -.01em; }
-.amp-tier__price span { font-size: 13px; opacity: .65; }
 .amp-tier p { font-size: 14px; line-height: 1.55; opacity: .82; }
 
 /* Event */
@@ -553,18 +549,16 @@ h1, h2, h3, p { margin: 0; }
   padding: 14px 0;
   border-top: 1px solid var(--line);
 }
-.package__name, .package__price { font-size: 15.5px; font-weight: 800; }
-.package__price { text-align: right; }
-.package__perk { font-size: 13.5px; color: var(--text); }
+.package__name { font-size: 15.5px; font-weight: 800; }
+.package__perk { font-size: 13.5px; color: var(--text); grid-column: 1 / -1; }
+.amp-tier__per { font-size: 13.5px; font-weight: 700; opacity: .7; }
+.sponsor__note { margin-top: auto; font-size: 14px; font-weight: 700; color: rgba(255, 255, 255, .9); }
 .package__avail { font-size: 12.5px; color: var(--muted); text-align: right; }
 
 .sponsor { background: var(--red); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
 .sponsor__kicker { font-size: 12px; font-weight: 800; letter-spacing: .14em; color: rgba(255, 255, 255, .85); }
 .sponsor h3 { font-size: 24px; line-height: 1.2; }
 .sponsor p { font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, .92); }
-.sponsor__price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: auto; }
-.sponsor__price strong { font-size: 32px; font-weight: 800; }
-.sponsor__price span { font-size: 14px; color: rgba(255, 255, 255, .85); }
 
 /* Why */
 .why__grid {
