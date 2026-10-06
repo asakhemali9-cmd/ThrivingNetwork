@@ -1,33 +1,55 @@
-// Image placeholders: any .media[data-placeholder] without an <img> shows a
-// captioned empty state until a real photo or logo is dropped in.
-const PH_ICON =
-  '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
-  'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-  '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>' +
-  '<path d="m21 15-5-5L5 21"/></svg>';
+// Mobile menu toggle.
+const header = document.querySelector('.site-header');
+const toggle = header?.querySelector('.nav-toggle');
+const setMenu = (open) => {
+  header.classList.toggle('is-open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+};
+toggle?.addEventListener('click', () => setMenu(!header.classList.contains('is-open')));
+header?.querySelectorAll('.site-nav a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && header?.classList.contains('is-open')) setMenu(false); });
 
-document.querySelectorAll('.media[data-placeholder]').forEach((el) => {
-  if (el.querySelector('img')) return;
-  const ph = document.createElement('div');
-  ph.className = 'media__ph';
-  ph.innerHTML = PH_ICON;
-  const cap = document.createElement('span');
-  cap.textContent = el.dataset.placeholder;
-  ph.appendChild(cap);
-  el.appendChild(ph);
-});
-
-// "Book a working session" form: swap to the confirmation message on submit.
-// TODO: post the email to the partnerships inbox / CRM once an endpoint exists.
+// "Book a working session" form. Submissions are relayed to the partnerships
+// inbox by FormSubmit (https://formsubmit.co). Until that inbox confirms the
+// one-time activation email, or if the request fails, visitors are shown the
+// direct email and phone details instead.
 const form = document.getElementById('session-form');
 const thanks = document.getElementById('session-thanks');
-form?.addEventListener('submit', (e) => {
+const fallback = document.getElementById('session-fallback');
+
+form?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = form.elements.email;
   if (!email.checkValidity()) {
     email.reportValidity();
     return;
   }
+  // Honeypot: bots fill hidden fields, people don't.
+  if (form.elements._honey.value) return;
+
+  const button = form.querySelector('button');
+  button.disabled = true;
+  button.textContent = 'Sending…';
+
+  let ok = false;
+  try {
+    const res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        email: email.value,
+        _subject: form.elements._subject.value,
+        _template: 'table',
+        source: location.href,
+      }),
+    });
+    const data = await res.json();
+    ok = res.ok && String(data.success) === 'true';
+  } catch {
+    ok = false;
+  }
+
   form.hidden = true;
-  thanks.hidden = false;
+  (ok ? thanks : fallback).hidden = false;
 });

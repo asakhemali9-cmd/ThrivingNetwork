@@ -8,6 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Libre+Caslon+Text:wght@700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thriving Network — ESD that builds businesses that last">
+<meta property="og:description" content="Enterprise &amp; Supplier Development programmes with practical capability, audit-ready evidence and amplified impact.">
+<meta property="og:image" content="assets/hero.jpg">
+<meta name="theme-color" content="#1E2A6E">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 <script src="main.js" defer></script>
 </head>
@@ -15,12 +21,15 @@
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="#" class="logo" aria-label="Thriving Network — home">
+    <a href="./" class="logo" aria-label="Thriving Network — home">
       <span class="logo__word">Thriving</span>
       <span class="logo__tag">NETWORK</span>
     </a>
-    <nav class="site-nav" aria-label="Main">
-      <a href="#" aria-current="page">Home</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="./" aria-current="page">Home</a>
       <a href="#approach">Approach</a>
       <a href="#programme">Programme</a>
       <a href="#evidence">Evidence</a>
@@ -28,7 +37,7 @@
       <a href="#investment">Investment</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="#cta" class="btn btn--red">Book a working session</a>
+    <a href="#cta" class="btn btn--red site-header__cta">Book a working session</a>
   </div>
 </header>
 
@@ -69,9 +78,9 @@
       <h2 class="h2">We develop the businesses. We amplify the impact.</h2>
       <p class="lead" style="font-size:16.5px">One partner for development, evidence and visibility — from beneficiary recruitment to graduation, aligned to your ESD objectives and your B-BBEE advisor’s targets.</p>
     </div>
-    <div class="grid grid--fit-250" style="gap:24px">
+    <div class="grid g3" style="gap:24px">
       <article class="audience-card">
-        <div class="audience-card__media"><div class="media" data-placeholder="Photo — business owner at work"></div></div>
+        <div class="audience-card__media"><div class="media"><img src="assets/deliver-1.jpg" alt="A business owner presenting at a Thriving Network event" width="966" height="640" loading="lazy"></div></div>
         <div class="audience-card__body">
           <span class="kicker">For the businesses you support</span>
           <h3>Tools they use every day</h3>
@@ -79,7 +88,7 @@
         </div>
       </article>
       <article class="audience-card">
-        <div class="audience-card__media"><div class="media" data-placeholder="Photo — ESD team / cohort session"></div></div>
+        <div class="audience-card__media"><div class="media"><img src="assets/deliver-2.jpg" alt="Cohort participants applauding during a session" width="966" height="640" loading="lazy"></div></div>
         <div class="audience-card__body">
           <span class="kicker">For your ESD team</span>
           <h3>A clear view of progress</h3>
@@ -87,7 +96,7 @@
         </div>
       </article>
       <article class="audience-card">
-        <div class="audience-card__media"><div class="media" data-placeholder="Photo — graduation / showcase"></div></div>
+        <div class="audience-card__media"><div class="media"><img src="assets/deliver-3.jpg" alt="Entrepreneurs taking notes at a programme showcase" width="1010" height="670" loading="lazy"></div></div>
         <div class="audience-card__body">
           <span class="kicker">For your organisation</span>
           <h3>Impact you can show</h3>
@@ -108,7 +117,7 @@
       </div>
       <p class="lead" style="font-size:15.5px;max-width:400px">Every programme follows the same logic — from understanding each business to showing what changed, and connecting it to buyers.</p>
     </div>
-    <ol class="grid grid--fit-150" style="gap:12px;list-style:none;margin:0;padding:0">
+    <ol class="grid g5" style="gap:12px;list-style:none;margin:0;padding:0">
       <li class="step">
         <div class="step__head"><span class="step__num">1</span><span class="step__title">DIAGNOSE</span></div>
         <div class="step__lead">Understand each business</div>
@@ -153,7 +162,7 @@
         <span class="chip-outline">Virtual or in person</span>
       </div>
     </div>
-    <div class="grid grid--fit-180" style="gap:24px">
+    <div class="grid g4" style="gap:24px">
       <div class="week week--accent">
         <span class="week__when">WEEK 1</span>
         <h3>Needs analysis &amp; baseline</h3>
@@ -207,7 +216,7 @@
       </div>
       <p class="lead">Even within the same industry, businesses face different challenges. The needs analysis places each one on a pathway — and one cohort can include all three.</p>
     </div>
-    <div class="grid grid--fit-240" style="gap:20px">
+    <div class="grid g3" style="gap:20px">
       <div class="pathway">
         <div class="pathway__bars" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
         <span class="pathway__name">FOUNDATION</span>
@@ -263,7 +272,7 @@
       </div>
       <p class="lead" style="font-size:15.5px;max-width:380px">Each business has an Impact Development Journey — a structured, verifiable record of its progress. We report what we can verify.</p>
     </div>
-    <div class="grid grid--fit-180 journey-grid">
+    <div class="grid g4 journey-grid">
       <div class="journey"><span class="journey__when">AT ENTRY</span><h3>Where did it start?</h3><p>Ownership, sector and location · systems, compliance and challenges · baseline from the needs analysis.</p></div>
       <div class="journey"><span class="journey__when">DURING</span><h3>What support was received?</h3><p>Development pathway · tools, systems and training provided · mentorship and milestones.</p></div>
       <div class="journey"><span class="journey__when">AT GRADUATION</span><h3>What changed?</h3><p>Systems now in use · compliance and digital presence · readiness for the next stage.</p></div>
@@ -294,7 +303,7 @@
 <section id="amplify" style="padding:0 28px 96px">
   <div class="wrap grid grid--fit-380 amplify">
     <div class="amplify__media">
-      <div class="media" data-placeholder="Photo — Thriving Media shoot / beneficiary interview"></div>
+      <div class="media"><img src="assets/amplify.jpg" alt="A beneficiary being interviewed on camera by Thriving Media" width="1920" height="1505" loading="lazy"></div>
       <div class="duotone"></div>
     </div>
     <div class="amplify__copy">
@@ -319,7 +328,7 @@
       </div>
       <p class="lead">For businesses on the Scale pathway, the Thriving Supplier Dealroom creates structured opportunities to meet corporate buyers and procurement teams — virtual or in person.</p>
     </div>
-    <div class="grid grid--fit-210" style="gap:14px">
+    <div class="grid g5" style="gap:14px">
       <div class="deal"><h3>Supplier Pitch Sessions</h3><p>Graduates present their capabilities to buyers and partners.</p></div>
       <div class="deal"><h3>Buyer Engagement Rooms</h3><p>Focused conversations between suppliers and procurement teams.</p></div>
       <div class="deal"><h3>Corporate-Ready Profiles</h3><p>Professional profiles and capability statements buyers can act on.</p></div>
@@ -339,7 +348,7 @@
       </div>
       <p style="font-size:15px;line-height:1.55;color:rgba(255,255,255,.72);max-width:400px">Each tier combines a development investment with an Impact &amp; Amplification layer, priced for a cohort of 20. All prices exclude VAT.</p>
     </div>
-    <div class="grid grid--fit-250" style="gap:20px;align-items:stretch">
+    <div class="grid g3" style="gap:20px;align-items:stretch">
       <div class="tier">
         <div class="tier__name"><span class="tier__dot" style="background:#B87333"></span>BRONZE</div>
         <div class="tier__title">ICT Enablement</div>
@@ -403,19 +412,19 @@
 </section>
 
 <!-- Why Thriving Network -->
-<section class="section">
+<section id="why" class="section">
   <div class="wrap grid grid--fit-380" style="gap:56px;align-items:start">
     <div class="sticky-col">
       <span class="eyebrow">Why Thriving Network</span>
       <h2 class="h2">We work inside the ESD ecosystem — not around it.</h2>
       <p class="lead" style="max-width:440px">We build the businesses and document their progress, so we understand both sides of every ESD story.</p>
     </div>
-    <div class="grid grid--fit-240" style="gap:16px">
+    <div class="cq"><div class="grid g4" style="gap:16px">
       <div class="why"><h3>A distribution network</h3><p>80,000+ community reach and 4,000+ entrepreneurs engaged, so stories reach the audiences ESD is built for.</p></div>
       <div class="why"><h3>ESD experience</h3><p>We have delivered SME development programmes for corporates since 2016.</p></div>
       <div class="why"><h3>Evidence you can stand behind</h3><p>We report what we can verify, with consented, documented progress for every business.</p></div>
       <div class="why"><h3>Tailored, not generic</h3><p>Every business starts with a needs analysis, so support fits the business — not the other way round.</p></div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -424,11 +433,9 @@
   <div class="wrap stack" style="gap:28px;align-items:center">
     <h2 class="partners__label" style="margin:0">Our partnerships</h2>
     <div class="partners__row">
-      <div class="partner"><div class="media media--contain" data-placeholder="Buhler logo"></div></div>
-      <div class="partner"><div class="media media--contain" data-placeholder="Endress+Hauser logo"></div></div>
-      <div class="partner"><div class="media media--contain" data-placeholder="Securitas logo"></div></div>
-      <div class="partner"><div class="media media--contain" data-placeholder="Partner logo"></div></div>
-      <div class="partner"><div class="media media--contain" data-placeholder="Partner logo"></div></div>
+      <div class="partner"><div class="media media--contain"><img src="assets/logo-standard-bank.png" alt="Standard Bank" width="954" height="255" loading="lazy"></div></div>
+      <div class="partner"><div class="media media--contain"><img src="assets/logo-endress-hauser.png" alt="Endress+Hauser" width="580" height="349" loading="lazy"></div></div>
+      <div class="partner"><div class="media media--contain"><img src="assets/logo-securitas.png" alt="Securitas" width="520" height="293" loading="lazy"></div></div>
     </div>
   </div>
 </section>
@@ -443,16 +450,19 @@
         <p class="cta__intro">A focused working session turns your ESD objectives, budget and 2027 priorities into a production-ready programme plan.</p>
       </div>
       <div class="stack" style="gap:12px">
-        <form class="cta-form" id="session-form" novalidate>
+        <form class="cta-form" id="session-form" action="https://formsubmit.co/Partnerships@thriving.network" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Working session request — thriving.network">
+          <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label for="session-email" class="visually-hidden">Work email</label>
           <input id="session-email" name="email" type="email" placeholder="Work email" autocomplete="email" required>
           <button type="submit">Book a working session</button>
         </form>
         <div class="cta__thanks" id="session-thanks" role="status" hidden>Thanks — our partnerships team will be in touch to schedule your session.</div>
-        <a href="#" class="cta__download">Or download the ICT Programme proposal (PDF) ↓</a>
+        <div class="cta__thanks" id="session-fallback" role="status" hidden>We couldn’t send that just now. Please email <a href="mailto:Partnerships@thriving.network?subject=Working%20session%20request" style="color:#fff;text-decoration:underline">Partnerships@thriving.network</a> or call <a href="tel:0128836993" style="color:#fff;text-decoration:underline">012 883 6993</a>.</div>
+        <a href="assets/thriving-ict-programme-proposal-2026.pdf" class="cta__download" download>Or download the ICT Programme proposal (PDF, 7.8 MB) ↓</a>
       </div>
     </div>
-    <ol class="grid grid--fit-170" style="gap:12px;list-style:none;margin:0;padding:0">
+    <ol class="grid g4" style="gap:12px;list-style:none;margin:0;padding:0">
       <li class="next"><span class="next__n">01</span><span class="next__title">Working session</span><span class="next__body">Understand your ESD objectives, budget, target beneficiaries and 2027 priorities.</span></li>
       <li class="next"><span class="next__n">02</span><span class="next__title">Confirm scope</span><span class="next__body">Agree supplier or enterprise development, the tier and any add-ons.</span></li>
       <li class="next"><span class="next__n">03</span><span class="next__title">Select businesses</span><span class="next__body">Recruit and select businesses aligned to your criteria, then run the needs analysis.</span></li>
@@ -471,12 +481,12 @@
         <p>Inform. Inspire. Celebrate. Elevate.</p>
       </div>
       <nav class="footer__col" aria-label="Programme"><span class="footer__col-title">Programme</span><a href="#approach">Our approach</a><a href="#programme">12-week programme</a><a href="#evidence">Reporting &amp; evidence</a><a href="#investment">Investment</a></nav>
-      <nav class="footer__col" aria-label="Company"><span class="footer__col-title">Company</span><a href="#">About</a><a href="#amplify">Thriving Media</a><a href="#">Insights</a><a href="#cta">Contact</a></nav>
+      <nav class="footer__col" aria-label="Company"><span class="footer__col-title">Company</span><a href="#why">About</a><a href="#amplify">Thriving Media</a><a href="#cta">Contact</a></nav>
       <address class="footer__col" style="font-style:normal"><span class="footer__col-title">Get in touch</span><a href="tel:0128836993">012 883 6993</a><a href="mailto:Partnerships@thriving.network">Partnerships@thriving.network</a><span>134 Aramist Ave, Menlyn, Pretoria</span></address>
     </div>
     <div class="footer__bottom">
       <span>© 2026 Thriving Network</span>
-      <nav aria-label="Legal"><a href="#">Privacy</a><a href="#">POPIA</a><a href="#">Terms</a></nav>
+      <span>Personal information is handled in line with POPIA.</span>
     </div>
   </div>
 </footer>
