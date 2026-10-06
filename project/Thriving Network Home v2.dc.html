@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Libre+Caslon+Text:wght@700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>body{margin:0;background:#F5F6FA;font-family:Figtree,system-ui,sans-serif;color:#141B45;-webkit-font-smoothing:antialiased}a{color:#1E2A6E;text-decoration:none}a:hover{color:#D2141E}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:20;background:#1E2A6E;color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.08)">
+  <div style="max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:clamp(16px,2.4vw,32px);flex-wrap:wrap">
+    <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#fff;line-height:1">
+      <span style="font-family:'Libre Caslon Text',Georgia,serif;font-weight:700;font-size:26px;letter-spacing:.02em;font-variant:small-caps">Thriving</span>
+      <span style="background:#D2141E;color:#fff;font-size:8.5px;font-weight:700;letter-spacing:.42em;padding:2px 6px 2px 10px">NETWORK</span>
+    </a>
+    <nav style="display:flex;gap:clamp(12px,1.8vw,26px);flex-wrap:wrap;flex:1;justify-content:center;font-size:clamp(13px,1.2vw,14.5px);font-weight:500;white-space:nowrap">
+      <a href="#" style="color:#fff;border-bottom:2px solid #D2141E;padding-bottom:3px">Home</a>
+      <a href="#approach" style="color:rgba(255,255,255,.82)" style-hover="color:#fff">Approach</a>
+      <a href="#programme" style="color:rgba(255,255,255,.82)" style-hover="color:#fff">Programme</a>
+      <a href="#evidence" style="color:rgba(255,255,255,.82)" style-hover="color:#fff">Evidence</a>
+      <a href="#amplify" style="color:rgba(255,255,255,.82)" style-hover="color:#fff">Amplify</a>
+      <a href="#investment" style="color:rgba(255,255,255,.82)" style-hover="color:#fff">Investment</a>
+      <a href="#contact" style="color:rgba(255,255,255,.82)" style-hover="color:#fff">Contact</a>
+    </nav>
+    <a href="#cta" style="background:#D2141E;color:#fff;font-weight:700;font-size:14px;padding:11px 20px;border-radius:999px" style-hover="background:#B00F18;color:#fff">Book a working session</a>
+  </div>
+</header>
+
+<sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ true }}">
+<section style="background:#fff;overflow:hidden">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));align-items:stretch;min-height:540px">
+    <div style="padding:72px 28px;display:flex;flex-direction:column;justify-content:center;gap:24px;max-width:580px">
+      <span style="display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase"><span style="width:28px;height:2px;background:#D2141E"></span>Your ESD Development Partner</span>
+      <h1 style="margin:0;font-size:clamp(36px,4.6vw,58px);line-height:1.04;font-weight:800;letter-spacing:-.02em;color:#141B45;text-wrap:balance">ESD that builds businesses that last.</h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#4A5078;text-wrap:pretty">We design and run Enterprise &amp; Supplier Development programmes that give Black-owned businesses practical capability they keep — and give you clear evidence of what your investment built.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#cta" style="background:#D2141E;color:#fff;font-weight:700;font-size:15px;padding:15px 26px;border-radius:999px" style-hover="background:#B00F18;color:#fff">Book a working session</a>
+        <a href="#programme" style="border:1.5px solid #1E2A6E;color:#1E2A6E;font-weight:700;font-size:15px;padding:13.5px 24px;border-radius:999px" style-hover="background:#1E2A6E;color:#fff">Explore the programme →</a>
+      </div>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;padding-top:12px;border-top:1px solid #E6E8F1">
+        <div><div style="font-size:24px;font-weight:800">2016</div><div style="font-size:13px;color:#6B7096">Developing entrepreneurs since</div></div>
+        <div><div style="font-size:24px;font-weight:800">4,000+</div><div style="font-size:13px;color:#6B7096">Entrepreneurs engaged</div></div>
+        <div><div style="font-size:24px;font-weight:800">80,000+</div><div style="font-size:13px;color:#6B7096">Community reach</div></div>
+      </div>
+    </div>
+    <div style="position:relative;min-height:440px">
+      <div style="position:absolute;inset:0;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%)">
+        <image-slot id="hero-photo" shape="rect" placeholder="Hero photo — supplier expo / cohort event"></image-slot>
+        <sc-if value="{{ duotone }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;background:#1E2A6E;mix-blend-mode:color;opacity:.55;pointer-events:none"></div></sc-if>
+      </div>
+      <div style="position:absolute;left:6%;bottom:32px;background:#141B45;color:#fff;border-radius:999px;padding:10px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;pointer-events:none">Inform. Inspire. Celebrate. Elevate.</div>
+    </div>
+  </div>
+</section>
+</sc-if>
+<sc-if value="{{ heroImmersive }}" hint-placeholder-val="{{ false }}">
+<section style="position:relative;min-height:620px;background:#141B45;color:#fff;display:flex;align-items:center;overflow:hidden">
+  <div style="position:absolute;inset:0"><image-slot id="hero-photo" shape="rect" placeholder="Hero photo — supplier expo / cohort event"></image-slot></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,27,69,.95) 0%,rgba(20,27,69,.75) 45%,rgba(20,27,69,.2) 100%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1240px;width:100%;margin:0 auto;padding:80px 28px;display:flex;flex-direction:column;gap:24px;pointer-events:none">
+    <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#FF6B72;text-transform:uppercase">Your ESD Development Partner</span>
+    <h1 style="margin:0;font-size:clamp(38px,5.2vw,66px);line-height:1.03;font-weight:800;letter-spacing:-.02em;max-width:760px;text-wrap:balance">ESD that builds businesses that last.</h1>
+    <p style="margin:0;font-size:18px;line-height:1.6;color:rgba(255,255,255,.88);max-width:560px">We design and run Enterprise &amp; Supplier Development programmes that give Black-owned businesses practical capability they keep — and give you clear evidence of what your investment built.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;pointer-events:auto">
+      <a href="#cta" style="background:#D2141E;color:#fff;font-weight:700;font-size:15px;padding:15px 26px;border-radius:999px">Book a working session</a>
+      <a href="#programme" style="border:1.5px solid rgba(255,255,255,.6);color:#fff;font-weight:700;font-size:15px;padding:13.5px 24px;border-radius:999px">Explore the programme →</a>
+    </div>
+    <div style="display:flex;gap:36px;flex-wrap:wrap;padding-top:16px">
+      <div><div style="font-size:26px;font-weight:800">2016</div><div style="font-size:13px;color:rgba(255,255,255,.75)">Developing entrepreneurs since</div></div>
+      <div><div style="font-size:26px;font-weight:800">4,000+</div><div style="font-size:13px;color:rgba(255,255,255,.75)">Entrepreneurs engaged</div></div>
+      <div><div style="font-size:26px;font-weight:800">80,000+</div><div style="font-size:13px;color:rgba(255,255,255,.75)">Community reach</div></div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<section style="padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:680px">
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">What we deliver</span>
+      <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em;text-wrap:balance">We develop the businesses. We amplify the impact.</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.6;color:#4A5078">One partner for development, evidence and visibility — from beneficiary recruitment to graduation, aligned to your ESD objectives and your B-BBEE advisor’s targets.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:24px">
+      <sc-for list="{{ audiences }}" as="c" hint-placeholder-count="3">
+        <div style="background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 0 1px rgba(20,27,69,.06);transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-4px);box-shadow:0 20px 40px rgba(20,27,69,.12),0 0 0 1px rgba(20,27,69,.06)">
+          <div style="position:relative;height:200px"><image-slot id="{{ c.slot }}" shape="rect" placeholder="{{ c.ph }}"></image-slot></div>
+          <div style="padding:24px 24px 28px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#D2141E;text-transform:uppercase">{{ c.kicker }}</span>
+            <h3 style="margin:0;font-size:20px;font-weight:800">{{ c.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#4A5078">{{ c.body }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="approach" style="background:#fff;padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:620px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">Our approach</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em">One connected journey.</h2>
+      </div>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#4A5078;max-width:400px">Every programme follows the same logic — from understanding each business to showing what changed, and connecting it to buyers.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+        <div style="padding:26px 22px;border-radius:16px;background:{{ st.bg }};color:{{ st.fg }};display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="width:38px;height:38px;border-radius:50%;background:{{ st.dot }};color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px">{{ st.n }}</span>
+            <span style="font-size:12.5px;font-weight:800;letter-spacing:.14em">{{ st.title }}</span>
+          </div>
+          <div style="font-size:18px;font-weight:800;line-height:1.25">{{ st.lead }}</div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.45">
+            <sc-for list="{{ st.items }}" as="it" hint-placeholder-count="3">
+              <div style="display:flex;gap:9px"><span style="flex:none;width:6px;height:6px;border-radius:50%;background:#D2141E;margin-top:7px"></span><span style="opacity:.85">{{ it }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="programme" style="background:#141B45;color:#fff;padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:52px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:640px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#FF6B72;text-transform:uppercase">The programme</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em">A structured 12-week programme.</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:rgba(255,255,255,.78)">Cohorts of 20 businesses, delivered through a blended model of training, mentorship, digital enablement and supplier readiness — with milestones tracked throughout.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span style="border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600">12 weeks</span>
+        <span style="border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600">20 businesses per cohort</span>
+        <span style="border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600">Virtual or in person</span>
+      </div>
+    </div>
+    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:24px">
+      <sc-for list="{{ weeks }}" as="w" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px;padding-top:22px;border-top:3px solid {{ w.bar }}">
+          <span style="font-size:12.5px;font-weight:800;letter-spacing:.14em;color:#FF6B72">{{ w.when }}</span>
+          <h3 style="margin:0;font-size:19px;font-weight:800">{{ w.title }}</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.75)">{{ w.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px">
+      <sc-for list="{{ tracks }}" as="tr" hint-placeholder-count="2">
+        <div style="background:#1E2A6E;border-radius:18px;padding:30px 28px;display:flex;flex-direction:column;gap:16px">
+          <span style="font-size:12px;font-weight:800;letter-spacing:.14em;color:#FF6B72">{{ tr.label }}</span>
+          <h3 style="margin:0;font-size:24px;font-weight:800">{{ tr.title }}</h3>
+          <p style="margin:0;font-size:15px;color:rgba(255,255,255,.75)">{{ tr.for }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ tr.items }}" as="it" hint-placeholder-count="4"><span style="background:rgba(255,255,255,.1);border-radius:999px;padding:7px 12px;font-size:13.5px">{{ it }}</span></sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:14px 24px;flex-wrap:wrap;align-items:center;font-size:14px;color:rgba(255,255,255,.8);margin-top:-24px">
+      <span style="font-weight:800;color:#fff;letter-spacing:.06em">BOTH TRACKS INCLUDE</span>
+      <span>✓ A needs analysis &amp; tailored pathway</span><span>✓ An Impact Development Journey per business</span><span>✓ Practical tools that stay in the business</span><span>✓ Audit-ready reporting &amp; evidence pack</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px 56px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">Tailored development</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em;text-wrap:balance">No two businesses start in the same place.</h2>
+      </div>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:#4A5078">Even within the same industry, businesses face different challenges. The needs analysis places each one on a pathway — and one cohort can include all three.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px">
+      <sc-for list="{{ pathways }}" as="p" hint-placeholder-count="3">
+        <div style="background:#fff;border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;gap:14px;box-shadow:0 0 0 1px rgba(20,27,69,.06)">
+          <div style="display:flex;gap:5px"><span style="width:28px;height:6px;border-radius:3px;background:#D2141E"></span><span style="width:28px;height:6px;border-radius:3px;background:{{ p.b2 }}"></span><span style="width:28px;height:6px;border-radius:3px;background:{{ p.b3 }}"></span></div>
+          <span style="font-size:13px;font-weight:800;letter-spacing:.14em;color:#1E2A6E">{{ p.name }}</span>
+          <div style="font-family:'Libre Caslon Text',Georgia,serif;font-size:22px;line-height:1.3">“{{ p.quote }}”</div>
+          <p style="margin:0;font-size:14.5px;color:#4A5078">{{ p.for }}</p>
+          <div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid #E6E8F1;font-size:14.5px;font-weight:600">
+            <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="3"><span>{{ it }}</span></sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:48px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:14px;position:sticky;top:110px">
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">Core modules</span>
+      <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em;text-wrap:balance">Modules selected by need, not by default.</h2>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:#4A5078">The programme is the toolkit. The needs analysis tells us which tools each business actually needs.</p>
+      <div style="margin-top:12px;background:#F5F6FA;border-radius:14px;padding:18px 20px;font-size:14.5px;line-height:1.55;color:#141B45"><strong>Development that stays.</strong> Software licences are included for 12 months, then transferred to the business.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1px;background:#E6E8F1;border-radius:16px;overflow:hidden;border:1px solid #E6E8F1">
+      <sc-for list="{{ modules }}" as="m" hint-placeholder-count="6">
+        <div style="background:#fff;padding:26px 24px;display:flex;flex-direction:column;gap:10px" style-hover="background:#FAFAFD">
+          <span style="font-size:28px;font-weight:800;color:#D2141E;line-height:1">{{ m.n }}</span>
+          <h3 style="margin:4px 0 0;font-size:17px;font-weight:800">{{ m.title }}</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.55;color:#4A5078">{{ m.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="evidence" style="padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:660px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">Evidence built in</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em;text-wrap:balance">Every business, documented from day one to a year after graduation.</h2>
+      </div>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#4A5078;max-width:380px">Each business has an Impact Development Journey — a structured, verifiable record of its progress. We report what we can verify.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1px;background:#E6E8F1;border-radius:18px;box-shadow:0 0 0 1px rgba(20,27,69,.06);overflow:hidden">
+      <sc-for list="{{ journey }}" as="j" hint-placeholder-count="4">
+        <div style="padding:28px 24px;display:flex;flex-direction:column;gap:10px;background:#fff">
+          <span style="align-self:flex-start;background:#1E2A6E;color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.1em;padding:5px 10px;border-radius:999px">{{ j.when }}</span>
+          <h3 style="margin:6px 0 0;font-size:18px;font-weight:800">{{ j.q }}</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#4A5078">{{ j.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <div style="background:#1E2A6E;color:#fff;border-radius:18px;padding:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 48px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <h3 style="margin:0;font-size:24px;font-weight:800;line-height:1.2">Audit-ready reporting, built for governance.</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:rgba(255,255,255,.78)">Every programme closes with a complete evidence pack aligned to your ESD reporting and verification requirements.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 20px;font-size:14px">
+        <sc-for list="{{ pack }}" as="pk" hint-placeholder-count="8">
+          <div style="display:flex;gap:10px"><span style="flex:none;color:#FF6B72;font-weight:800">✓</span><span style="color:rgba(255,255,255,.9)">{{ pk }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="amplify" style="padding:0 28px 96px">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(20,27,69,.06)">
+    <div style="position:relative;min-height:440px">
+      <image-slot id="impact-photo" shape="rect" placeholder="Photo — Thriving Media shoot / beneficiary interview"></image-slot>
+      <sc-if value="{{ duotone }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;background:#1E2A6E;mix-blend-mode:color;opacity:.55;pointer-events:none"></div></sc-if>
+    </div>
+    <div style="padding:52px 44px;display:flex;flex-direction:column;gap:20px;justify-content:center">
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">Amplify — built in</span>
+      <h2 style="margin:0;font-size:clamp(26px,3vw,38px);line-height:1.12;font-weight:800;letter-spacing:-.015em;text-wrap:balance">A distribution network, not just a camera crew.</h2>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#4A5078">We turn each business’s journey into credible impact stories on Thriving Media and your own channels — so your investment is visible as well as delivered.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ channels }}" as="ch" hint-placeholder-count="6"><span style="border:1px solid #D6D9E8;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:#1E2A6E">{{ ch }}</span></sc-for>
+      </div>
+      <p style="margin:0;font-size:13.5px;line-height:1.55;color:#6B7096">Every asset is approved by you before publication and consented by participants. No beneficiary is filmed or named without written consent; data handled in line with POPIA.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px 56px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">Connect</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em">From ready to connected.</h2>
+      </div>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:#4A5078">For businesses on the Scale pathway, the Thriving Supplier Dealroom creates structured opportunities to meet corporate buyers and procurement teams — virtual or in person.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px">
+      <sc-for list="{{ dealroom }}" as="d" hint-placeholder-count="5">
+        <div style="background:#F5F6FA;border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;gap:8px">
+          <h3 style="margin:0;font-size:16.5px;font-weight:800">{{ d.title }}</h3>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#4A5078">{{ d.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="investment" style="background:#141B45;color:#fff;padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:620px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#FF6B72;text-transform:uppercase">Investment</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em">Choose the depth. We tailor the detail.</h2>
+      </div>
+      <p style="margin:0;font-size:15px;line-height:1.55;color:rgba(255,255,255,.72);max-width:400px">Each tier combines a development investment with an Impact &amp; Amplification layer, priced for a cohort of 20. All prices exclude VAT.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px;align-items:stretch">
+      <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
+        <div style="position:relative;border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;gap:18px;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }}">
+          <sc-if value="{{ t.featured }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-12px;left:28px;background:#D2141E;color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.08em;padding:5px 12px;border-radius:999px">MOST POPULAR</span></sc-if>
+          <div style="display:flex;align-items:center;gap:10px"><span style="width:14px;height:14px;border-radius:50%;background:{{ t.dot }}"></span><span style="font-size:13px;font-weight:800;letter-spacing:.12em">{{ t.name }}</span></div>
+          <div style="font-size:23px;font-weight:800;line-height:1.2">{{ t.title }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:12px;font-weight:700;letter-spacing:.1em;opacity:.6">TOTAL INVESTMENT</span>
+            <span style="font-size:24px;font-weight:800;letter-spacing:-.01em">{{ t.total }}</span>
+            <span style="font-size:13px;opacity:.65">{{ t.split }}</span>
+          </div>
+          <p style="margin:0;font-size:14.5px;line-height:1.55;padding-top:16px;border-top:1px solid {{ t.line }}">{{ t.includes }}</p>
+          <p style="margin:0;font-size:14px;line-height:1.55;opacity:.8;flex:1"><strong>Impact layer:</strong> {{ t.impact }}</p>
+          <span style="font-size:13px;font-weight:700;color:{{ t.bestFg }}">{{ t.best }}</span>
+          <a href="#cta" style="text-align:center;font-weight:700;font-size:14.5px;padding:13px 20px;border-radius:999px;background:{{ t.btnBg }};color:{{ t.btnFg }}">Request a proposal</a>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;padding-top:8px">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+        <span style="font-size:15px;font-weight:800">Optional add-ons <span style="font-weight:500;color:rgba(255,255,255,.65)">— quoted separately, scoped to your cohort</span></span>
+        <span style="font-size:13px;color:rgba(255,255,255,.6)">Travel outside Gauteng and extended amplification campaigns quoted separately.</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ addons }}" as="a" hint-placeholder-count="10"><span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 14px;font-size:13.5px">{{ a }}</span></sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:14px;position:sticky;top:110px">
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#D2141E;text-transform:uppercase">Why Thriving Network</span>
+      <h2 style="margin:0;font-size:clamp(28px,3.4vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.015em;text-wrap:balance">We work inside the ESD ecosystem — not around it.</h2>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:#4A5078;max-width:440px">We build the businesses and document their progress, so we understand both sides of every ESD story.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
+      <sc-for list="{{ why }}" as="w" hint-placeholder-count="4">
+        <div style="background:#fff;border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:10px;box-shadow:0 0 0 1px rgba(20,27,69,.06)">
+          <span style="width:36px;height:4px;border-radius:2px;background:#D2141E"></span>
+          <h3 style="margin:8px 0 0;font-size:18px;font-weight:800">{{ w.title }}</h3>
+          <p style="margin:0;font-size:14.5px;line-height:1.6;color:#4A5078">{{ w.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:56px 28px;border-top:1px solid #E6E8F1;border-bottom:1px solid #E6E8F1">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:28px;align-items:center">
+    <span style="font-size:13px;font-weight:700;letter-spacing:.14em;color:#6B7096;text-transform:uppercase">Our partnerships</span>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;width:100%">
+      <sc-for list="{{ partners }}" as="p" hint-placeholder-count="5">
+        <div style="width:190px;height:84px;filter:grayscale(1);opacity:.75" style-hover="filter:none;opacity:1"><image-slot id="{{ p.slot }}" shape="rect" fit="contain" placeholder="{{ p.name }} logo"></image-slot></div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="cta" style="padding:96px 28px">
+  <div style="max-width:1240px;margin:0 auto;border-radius:24px;background:#D2141E;color:#fff;padding:60px 52px;display:flex;flex-direction:column;gap:44px;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;border:60px solid rgba(255,255,255,.08);pointer-events:none"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px 48px;align-items:center;position:relative">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)">Next step</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1.08;font-weight:800;letter-spacing:-.015em;text-wrap:balance">Let’s build impact together.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:rgba(255,255,255,.92)">A focused working session turns your ESD objectives, budget and 2027 priorities into a production-ready programme plan.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <input placeholder="Work email" value="{{ email }}" onChange="{{ onEmail }}" style="flex:1;min-width:220px;font:inherit;font-size:15px;padding:15px 20px;border-radius:999px;border:none;outline:none;color:#141B45">
+            <button onClick="{{ submit }}" style="font:inherit;font-weight:700;font-size:15px;padding:15px 24px;border-radius:999px;border:none;background:#141B45;color:#fff;cursor:pointer" style-hover="background:#000">Book a working session</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="background:rgba(255,255,255,.14);border-radius:14px;padding:16px 20px;font-weight:600">Thanks — our partnerships team will be in touch to schedule your session.</div>
+        </sc-if>
+        <a href="#" style="color:#fff;font-weight:700;font-size:14.5px;padding-left:20px">Or download the ICT Programme proposal (PDF) ↓</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;position:relative">
+      <sc-for list="{{ next }}" as="n" hint-placeholder-count="4">
+        <div style="background:rgba(255,255,255,.12);border-radius:14px;padding:18px 18px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;font-weight:800;letter-spacing:.12em;color:rgba(255,255,255,.8)">{{ n.n }}</span>
+          <span style="font-size:15.5px;font-weight:800">{{ n.title }}</span>
+          <span style="font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.88)">{{ n.body }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" style="background:#141B45;color:rgba(255,255,255,.75);padding:64px 28px 28px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px">
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;color:#fff;line-height:1">
+          <span style="font-family:'Libre Caslon Text',Georgia,serif;font-weight:700;font-size:24px;font-variant:small-caps">Thriving</span>
+          <span style="background:#D2141E;font-size:8px;font-weight:700;letter-spacing:.42em;padding:2px 6px 2px 10px">NETWORK</span>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.6;max-width:240px">Inform. Inspire. Celebrate. Elevate.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><span style="color:#fff;font-weight:700;margin-bottom:4px">Programme</span><a href="#approach" style="color:rgba(255,255,255,.75)">Our approach</a><a href="#programme" style="color:rgba(255,255,255,.75)">12-week programme</a><a href="#evidence" style="color:rgba(255,255,255,.75)">Reporting &amp; evidence</a><a href="#investment" style="color:rgba(255,255,255,.75)">Investment</a></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><span style="color:#fff;font-weight:700;margin-bottom:4px">Company</span><a href="#" style="color:rgba(255,255,255,.75)">About</a><a href="#amplify" style="color:rgba(255,255,255,.75)">Thriving Media</a><a href="#" style="color:rgba(255,255,255,.75)">Insights</a><a href="#cta" style="color:rgba(255,255,255,.75)">Contact</a></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><span style="color:#fff;font-weight:700;margin-bottom:4px">Get in touch</span><a href="tel:0128836993" style="color:rgba(255,255,255,.75)">012 883 6993</a><a href="mailto:Partnerships@thriving.network" style="color:rgba(255,255,255,.75)">Partnerships@thriving.network</a><span>134 Aramist Ave, Menlyn, Pretoria</span></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:rgba(255,255,255,.55)">
+      <span>© 2026 Thriving Network</span>
+      <div style="display:flex;gap:20px"><a href="#" style="color:rgba(255,255,255,.55)">Privacy</a><a href="#" style="color:rgba(255,255,255,.55)">POPIA</a><a href="#" style="color:rgba(255,255,255,.55)">Terms</a></div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;split&quot;,&quot;immersive&quot;],&quot;default&quot;:&quot;split&quot;,&quot;tsType&quot;:&quot;'split'|'immersive'&quot;},&quot;duotone&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { email: '', sent: false };
+  renderVals() {
+    const hero = this.props.heroStyle ?? 'split';
+    const light = { bg: '#fff', fg: '#141B45', line: '#E6E8F1', btnBg: '#1E2A6E', btnFg: '#fff', shadow: 'none', bestFg: '#D2141E' };
+    const stepLight = { bg: '#F5F6FA', fg: '#141B45', dot: '#1E2A6E' };
+    return {
+      heroSplit: hero === 'split', heroImmersive: hero === 'immersive',
+      duotone: this.props.duotone ?? true,
+      email: this.state.email, sent: this.state.sent, notSent: !this.state.sent,
+      onEmail: e => this.setState({ email: e.target.value }),
+      submit: () => this.setState({ sent: true }),
+      audiences: [
+        { slot: 'svc-1', ph: 'Photo — business owner at work', kicker: 'For the businesses you support', title: 'Tools they use every day', body: 'Tailored tools, systems and support that become part of how each business operates — long after graduation.' },
+        { slot: 'svc-2', ph: 'Photo — ESD team / cohort session', kicker: 'For your ESD team', title: 'A clear view of progress', body: 'A documented picture of how each business is progressing — and which are ready for their next stage.' },
+        { slot: 'svc-3', ph: 'Photo — graduation / showcase', kicker: 'For your organisation', title: 'Impact you can show', body: 'Credible impact stories and evidence that bring your ESD investment to life for your board, stakeholders and wider audiences.' }
+      ],
+      steps: [
+        { ...stepLight, n: '1', title: 'DIAGNOSE', lead: 'Understand each business', items: ['Needs analysis for every business', 'Baseline of systems, compliance & capability', 'A tailored development pathway'] },
+        { ...stepLight, n: '2', title: 'ENABLE', lead: 'Build practical capability', items: ['ICT tools and business systems', 'Training, mentorship & coaching', 'Procurement readiness & market access'] },
+        { ...stepLight, n: '3', title: 'EVIDENCE', lead: 'Document what changed', items: ['An Impact Development Journey per business', 'Progress from baseline to graduation', 'Audit-ready evidence pack'] },
+        { ...stepLight, n: '4', title: 'AMPLIFY', lead: 'Make the impact visible', items: ['Beneficiary profiles & case studies', 'Digital assets', 'Broadcast on Thriving Media & your channels'] },
+        { bg: '#1E2A6E', fg: '#fff', dot: '#D2141E', n: '5', title: 'CONNECT', lead: 'Buyers + opportunities', items: ['Supplier Dealroom', 'Pitch sessions & buyer rooms', 'Introductions & follow-up'] }
+      ],
+      weeks: [
+        { when: 'WEEK 1', bar: '#D2141E', title: 'Needs analysis & baseline', body: 'Every business completes a diagnostic and is placed on a pathway matched to its maturity, industry and your objectives.' },
+        { when: 'WEEKS 2–10', bar: 'rgba(255,255,255,.35)', title: 'Training, enablement & mentorship', body: 'Tailored ICT tools and systems, practical training and structured coaching, delivered to each business’s plan.' },
+        { when: 'WEEKS 11–12', bar: 'rgba(255,255,255,.35)', title: 'Readiness & final reporting', body: 'Supplier readiness, Dealroom preparation, progress assessment and the final evidence pack.' },
+        { when: 'GRADUATION', bar: '#D2141E', title: 'Certificates, profiles & showcase', body: 'Completion certificates, corporate-ready supplier profiles and a graduation showcase with your stakeholders.' }
+      ],
+      tracks: [
+        { label: 'TRACK 1', title: 'Supplier Development', for: 'For Black-owned suppliers already in your value chain.', items: ['Stronger operational efficiency', 'Improved delivery capability', 'Digital systems implemented', 'Supplier compliance readiness'] },
+        { label: 'TRACK 2', title: 'Enterprise Development', for: 'For emerging businesses building towards procurement.', items: ['Structured foundation enablement', 'Business systems & compliance', 'A pipeline of future suppliers', 'Aligned to your procurement objectives'] }
+      ],
+      pathways: [
+        { name: 'FOUNDATION', b2: '#E6E8F1', b3: '#E6E8F1', quote: 'The basics are in place.', for: 'For businesses building their digital and compliance foundation.', items: ['Compliance documentation', 'Professional email & domain', 'Digital basics & record keeping'] },
+        { name: 'OPTIMISATION', b2: '#D2141E', b3: '#E6E8F1', quote: 'The business runs on systems.', for: 'For businesses ready to operate more efficiently.', items: ['Quoting & invoicing', 'CRM & bookkeeping', 'WhatsApp Business & online presence'] },
+        { name: 'SCALE', b2: '#D2141E', b3: '#D2141E', quote: 'Ready for the next opportunity.', for: 'For businesses preparing for corporate supply chains.', items: ['Capability statement', 'Supplier profile & KPIs', 'Procurement readiness & Dealroom'] }
+      ],
+      modules: [
+        { n: '01', title: 'ICT Tools & Productivity', body: 'Digital literacy, Microsoft 365 or Google Workspace, professional email and domains.' },
+        { n: '02', title: 'Cybersecurity & Communications', body: 'Cybersecurity awareness and basic controls, plus VoIP and business communications readiness.' },
+        { n: '03', title: 'Business Systems & CRM', body: 'Quoting, invoicing, CRM (HubSpot, Zoho or equivalent) and workflow automation.' },
+        { n: '04', title: 'Financial Management & Compliance', body: 'Bookkeeping tools and support with CIPC, SARS and B-BBEE affidavit guidance.' },
+        { n: '05', title: 'Sales & Digital Presence', body: 'WhatsApp Business, websites and online profiles that help businesses find and serve customers.' },
+        { n: '06', title: 'Procurement Readiness & Mentorship', body: 'Supplier onboarding requirements, business coaching, mentorship and growth planning.' }
+      ],
+      journey: [
+        { when: 'AT ENTRY', q: 'Where did it start?', body: 'Ownership, sector and location · systems, compliance and challenges · baseline from the needs analysis.' },
+        { when: 'DURING', q: 'What support was received?', body: 'Development pathway · tools, systems and training provided · mentorship and milestones.' },
+        { when: 'AT GRADUATION', q: 'What changed?', body: 'Systems now in use · compliance and digital presence · readiness for the next stage.' },
+        { when: '6–12 MONTHS LATER', q: 'What happened next?', body: 'Continued use of systems · growth and new opportunities · further support needed.' }
+      ],
+      pack: ['Needs analysis & baseline outcomes', 'Impact Development Journey per business', 'Beneficiary database & profiling records', 'Training curriculum & learning records', 'Signed attendance registers', 'Mentorship logs & coaching records', 'Monthly progress reports & dashboards', 'Completion certificates', 'Board-ready final impact report', 'Full audit-ready ESD evidence pack'],
+      channels: ['YouTube', 'LinkedIn & Press', 'Facebook', 'Instagram Reels', 'TikTok', 'Radio & Media Partners'],
+      dealroom: [
+        { title: 'Supplier Pitch Sessions', body: 'Graduates present their capabilities to buyers and partners.' },
+        { title: 'Buyer Engagement Rooms', body: 'Focused conversations between suppliers and procurement teams.' },
+        { title: 'Corporate-Ready Profiles', body: 'Professional profiles and capability statements buyers can act on.' },
+        { title: 'Supplier Directory', body: 'A searchable record of programme graduates and their capabilities.' },
+        { title: 'Introductions & Follow-Up', body: 'Market access support where genuine opportunities exist.' }
+      ],
+      tiers: [
+        { ...light, name: 'BRONZE', dot: '#B87333', title: 'ICT Enablement', featured: false, total: 'R405k – R605k', split: 'Development R350k–R550k + Impact R55k',
+          includes: 'Needs analysis, tailored development plans, digital tools, cybersecurity basics and compliance readiness.', impact: 'evidence pack and digital assets for every SME.', best: 'Best for foundational digital enablement' },
+        { bg: '#1E2A6E', fg: '#fff', line: 'rgba(255,255,255,.14)', btnBg: '#D2141E', btnFg: '#fff', bestFg: '#FF8A90', shadow: '0 0 0 1.5px #D2141E, 0 24px 50px rgba(0,0,0,.3)', name: 'SILVER', dot: '#C0C4D0', title: 'ICT + Growth', featured: true, total: 'R790k – R1.09m', split: 'Development R650k–R950k + Impact R140k',
+          includes: 'Everything in Bronze, plus CRM, WhatsApp Business, website, bookkeeping, mentorship and a pitch session.', impact: 'adds 3 case studies with short video.', best: 'Best for operational & procurement readiness' },
+        { ...light, name: 'GOLD', dot: '#D4A537', title: 'ICT Supplier Development', featured: false, total: 'R1.47m – R2.27m+', split: 'Development R1.2m–R2m+ + Impact R270k',
+          includes: 'Everything in Silver, plus supplier performance plans, Dealroom activation and dedicated programme management.', impact: 'adds a flagship Thriving Media episode, executive interview and graduation coverage.', best: 'Best for building an active supplier pipeline' }
+      ],
+      addons: ['Devices: laptops, tablets & ICT starter kits', 'Connectivity & Wi-Fi enablement', 'VoIP & Teams integration', 'Sage / Xero set-up & training', 'Website development & hosting', 'Email hosting & domains', 'Branding starter kit', 'Procurement onboarding documents', 'Supplier directory & profiling packs', 'Advanced cybersecurity packs'],
+      why: [
+        { title: 'A distribution network', body: '80,000+ community reach and 4,000+ entrepreneurs engaged, so stories reach the audiences ESD is built for.' },
+        { title: 'ESD experience', body: 'We have delivered SME development programmes for corporates since 2016.' },
+        { title: 'Evidence you can stand behind', body: 'We report what we can verify, with consented, documented progress for every business.' },
+        { title: 'Tailored, not generic', body: 'Every business starts with a needs analysis, so support fits the business — not the other way round.' }
+      ],
+      partners: [
+        { slot: 'logo-1', name: 'Buhler' }, { slot: 'logo-2', name: 'Endress+Hauser' },
+        { slot: 'logo-3', name: 'Securitas' }, { slot: 'logo-4', name: 'Partner' }, { slot: 'logo-5', name: 'Partner' }
+      ],
+      next: [
+        { n: '01', title: 'Working session', body: 'Understand your ESD objectives, budget, target beneficiaries and 2027 priorities.' },
+        { n: '02', title: 'Confirm scope', body: 'Agree supplier or enterprise development, the tier and any add-ons.' },
+        { n: '03', title: 'Select businesses', body: 'Recruit and select businesses aligned to your criteria, then run the needs analysis.' },
+        { n: '04', title: 'Production planning', body: 'Lock the 12-week schedule, delivery team, reporting and amplification plan.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
