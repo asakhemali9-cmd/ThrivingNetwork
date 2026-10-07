@@ -634,40 +634,7 @@ h1, h2, h3, p { margin: 0; }
 .cta .eyebrow { color: var(--red-soft); }
 .cta h2 { font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; }
 .cta__intro { font-size: 17px; line-height: 1.55; color: rgba(255, 255, 255, .85); }
-.cta__form { display: flex; flex-direction: column; gap: 12px; }
-.cta__form legend { padding: 0; margin-bottom: 12px; font-size: 14px; font-weight: 700; color: rgba(255, 255, 255, .85); }
-.cta__form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
-.interests { display: flex; flex-wrap: wrap; gap: 8px; }
-.interests button {
-  font: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 9px 15px;
-  border-radius: 999px;
-  border: 1.5px solid rgba(255, 255, 255, .4);
-  background: transparent;
-  color: var(--white);
-}
-.interests button[aria-pressed="true"] { border-color: var(--white); background: var(--white); color: var(--ink); }
-.cta__submit { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 4px; }
-.cta__submit input {
-  flex: 1;
-  min-width: 220px;
-  font: inherit;
-  font-size: 15px;
-  padding: 15px 20px;
-  border-radius: 999px;
-  border: none;
-  outline: none;
-  color: var(--ink);
-}
-.cta__submit input:focus-visible { box-shadow: 0 0 0 3px var(--red-soft); }
-.cta__submit .btn--red { padding: 15px 24px; }
-.cta__thanks { background: rgba(255, 255, 255, .12); border-radius: 14px; padding: 18px 20px; font-weight: 600; line-height: 1.5; }
-.cta__thanks a { color: var(--white); text-decoration: underline; }
-.cta__error-detail { display: block; margin-top: 10px; font-size: 12px; font-weight: 400; opacity: .7; word-break: break-word; }
-.cta__submit .btn--red:disabled { opacity: .7; cursor: progress; }
+.cta__hubspot { background: var(--white); color: var(--ink); border-radius: 18px; padding: 24px; min-height: 220px; }
 .cta__call { font-size: 14px; color: rgba(255, 255, 255, .75); }
 .cta__call a { color: var(--white); font-weight: 700; }
 
