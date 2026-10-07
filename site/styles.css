@@ -666,6 +666,7 @@ h1, h2, h3, p { margin: 0; }
 .cta__submit .btn--red { padding: 15px 24px; }
 .cta__thanks { background: rgba(255, 255, 255, .12); border-radius: 14px; padding: 18px 20px; font-weight: 600; line-height: 1.5; }
 .cta__thanks a { color: var(--white); text-decoration: underline; }
+.cta__error-detail { display: block; margin-top: 10px; font-size: 12px; font-weight: 400; opacity: .7; word-break: break-word; }
 .cta__submit .btn--red:disabled { opacity: .7; cursor: progress; }
 .cta__call { font-size: 14px; color: rgba(255, 255, 255, .75); }
 .cta__call a { color: var(--white); font-weight: 700; }

@@ -57,6 +57,7 @@ var HUBSPOT_ENDPOINTS = ['https://api-eu1.hsforms.com', 'https://api.hsforms.com
   var form = document.getElementById('cta-form');
   var thanks = document.getElementById('cta-thanks');
   var fallback = document.getElementById('cta-fallback');
+  var errorDetail = document.getElementById('cta-error-detail');
   var email = document.getElementById('cta-email');
   var toggles = form.querySelectorAll('.interests button');
 
@@ -99,24 +100,41 @@ var HUBSPOT_ENDPOINTS = ['https://api-eu1.hsforms.com', 'https://api.hsforms.com
     });
   }
 
+  // Short, human-readable reason from a HubSpot error response.
+  async function describeFailure(base, res) {
+    var host = base.replace('https://', '');
+    var detail = '';
+    try {
+      var data = await res.json();
+      detail = (data.errors || []).map(function (e) { return e.errorType + ': ' + e.message; }).join('; ') || data.message || '';
+    } catch (err) { /* not JSON */ }
+    return host + ' ' + res.status + (detail ? ' (' + detail + ')' : '');
+  }
+
+  // Resolves to '' on success, or a description of every failed attempt.
   async function sendToHubSpot(address, interestText) {
+    var problems = [];
     for (var i = 0; i < HUBSPOT_ENDPOINTS.length; i++) {
+      var base = HUBSPOT_ENDPOINTS[i];
       var res;
       try {
-        res = await postToHubSpot(HUBSPOT_ENDPOINTS[i], hubSpotFields(address, interestText));
+        res = await postToHubSpot(base, hubSpotFields(address, interestText));
       } catch (err) {
-        continue; // Endpoint unreachable: try the next one.
+        problems.push(base.replace('https://', '') + ' unreachable');
+        continue;
       }
-      if (res.ok) return true;
-      if (res.status === 404) continue;
+      if (res.ok) return '';
+      problems.push(await describeFailure(base, res));
       if (res.status === 400) {
         // The form may not have a Message field; still capture the contact.
-        res = await postToHubSpot(HUBSPOT_ENDPOINTS[i], hubSpotFields(address, null));
-        return res.ok;
+        try {
+          res = await postToHubSpot(base, hubSpotFields(address, null));
+          if (res.ok) return '';
+          problems.push('email only: ' + await describeFailure(base, res));
+        } catch (err) { /* fall through to the next endpoint */ }
       }
-      return false;
     }
-    return false;
+    return problems.join(' | ') || 'unknown error';
   }
 
   form.addEventListener('submit', async function (e) {
@@ -137,14 +155,19 @@ var HUBSPOT_ENDPOINTS = ['https://api-eu1.hsforms.com', 'https://api.hsforms.com
     button.textContent = 'Sending…';
 
     var interestText = interests.length ? interests.join(', ') : 'Not specified';
-    var ok = false;
+    var problem;
     try {
-      ok = await sendToHubSpot(email.value, interestText);
+      problem = await sendToHubSpot(email.value, interestText);
     } catch (err) {
-      ok = false;
+      problem = 'script error: ' + err.message;
     }
 
     form.hidden = true;
-    (ok ? thanks : fallback).hidden = false;
+    if (problem) {
+      errorDetail.textContent = 'Technical details: ' + problem;
+      fallback.hidden = false;
+    } else {
+      thanks.hidden = false;
+    }
   });
 })();
