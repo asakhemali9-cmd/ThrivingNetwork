@@ -45,13 +45,13 @@
   });
 })();
 
-// "Book a working session" form.
-// Requests go to HubSpot as form submissions (contact + "message" field) once
-// HUBSPOT_PORTAL_ID and HUBSPOT_FORM_ID are filled in. Until then they are
-// relayed to the partnerships inbox by FormSubmit. If sending fails, visitors
-// are shown the direct email and phone details instead.
-var HUBSPOT_PORTAL_ID = '';
-var HUBSPOT_FORM_ID = '';
+// "Book a working session" form. Requests are sent to HubSpot (portal on the
+// EU data centre) as form submissions: the visitor's email plus a "message"
+// listing the interests they ticked. If sending fails, visitors are shown the
+// direct email and phone details instead.
+var HUBSPOT_PORTAL_ID = '147879281';
+var HUBSPOT_FORM_ID = '2a481c15-844d-4414-984c-b214c20684c9';
+var HUBSPOT_ENDPOINTS = ['https://api-eu1.hsforms.com', 'https://api.hsforms.com'];
 
 (function () {
   var form = document.getElementById('cta-form');
@@ -79,39 +79,44 @@ var HUBSPOT_FORM_ID = '';
     });
   });
 
-  async function sendToHubSpot(address, interestText) {
+  function hubSpotFields(address, interestText) {
+    var fields = [{ objectTypeId: '0-1', name: 'email', value: address }];
+    if (interestText !== null) {
+      fields.push({ objectTypeId: '0-1', name: 'message', value: 'Working session request. Interested in: ' + interestText });
+    }
+    return fields;
+  }
+
+  async function postToHubSpot(base, fields) {
     var hutk = (document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/) || [])[1];
     var context = { pageUri: location.href, pageName: document.title };
     if (hutk) context.hutk = hutk;
-    var res = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/' +
+    return fetch(base + '/submissions/v3/integration/submit/' +
       encodeURIComponent(HUBSPOT_PORTAL_ID) + '/' + encodeURIComponent(HUBSPOT_FORM_ID), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        fields: [
-          { objectTypeId: '0-1', name: 'email', value: address },
-          { objectTypeId: '0-1', name: 'message', value: 'Working session request. Interested in: ' + interestText }
-        ],
-        context: context
-      })
+      body: JSON.stringify({ fields: fields, context: context })
     });
-    return res.ok;
   }
 
-  async function sendToFormSubmit(address, interestText) {
-    var res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        email: address,
-        interested_in: interestText,
-        _subject: form.elements._subject.value,
-        _template: 'table',
-        source: location.href
-      })
-    });
-    var data = await res.json();
-    return res.ok && String(data.success) === 'true';
+  async function sendToHubSpot(address, interestText) {
+    for (var i = 0; i < HUBSPOT_ENDPOINTS.length; i++) {
+      var res;
+      try {
+        res = await postToHubSpot(HUBSPOT_ENDPOINTS[i], hubSpotFields(address, interestText));
+      } catch (err) {
+        continue; // Endpoint unreachable: try the next one.
+      }
+      if (res.ok) return true;
+      if (res.status === 404) continue;
+      if (res.status === 400) {
+        // The form may not have a Message field; still capture the contact.
+        res = await postToHubSpot(HUBSPOT_ENDPOINTS[i], hubSpotFields(address, null));
+        return res.ok;
+      }
+      return false;
+    }
+    return false;
   }
 
   form.addEventListener('submit', async function (e) {
@@ -134,9 +139,7 @@ var HUBSPOT_FORM_ID = '';
     var interestText = interests.length ? interests.join(', ') : 'Not specified';
     var ok = false;
     try {
-      ok = HUBSPOT_PORTAL_ID && HUBSPOT_FORM_ID
-        ? await sendToHubSpot(email.value, interestText)
-        : await sendToFormSubmit(email.value, interestText);
+      ok = await sendToHubSpot(email.value, interestText);
     } catch (err) {
       ok = false;
     }
